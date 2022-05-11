@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect } from 'react';
 import './App.css';
+import {
+    shoot,
+    startGame,
+} from './battleship_game_engine/battleshipGameEngine';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    useEffect(() => {}, []);
+    return (
+        <div className="App">
+            {startGame().map((el, index) => {
+                return el.map((el, index) => {
+                    return <div>[{el}]</div>;
+                });
+            })}
+        </div>
+    );
+};
 
 export default App;
